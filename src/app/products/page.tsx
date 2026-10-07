@@ -33,10 +33,10 @@ export default function ProductsPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 pt-20 pb-24">
-      <ContactModal 
-        isOpen={modalOpen} 
-        onClose={() => setModalOpen(false)} 
-        inquiryType={inquiryType} 
+      <ContactModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        inquiryType={inquiryType}
       />
 
       <div className="bg-primary py-16 px-4 sm:px-6 lg:px-8 text-center">
@@ -63,19 +63,19 @@ export default function ProductsPage() {
                   <div className="text-xs font-bold text-accent mb-2 uppercase tracking-wide">Capacity: {product.capacity}</div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-4 h-14">{product.name}</h3>
                   <div className="grid grid-cols-3 gap-2">
-                    <button 
+                    <button
                       onClick={() => openModal("Buy")}
                       className="w-full py-2 flex justify-center items-center text-sm font-medium bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
                     >
                       Buy
                     </button>
-                    <button 
-                      onClick={() => openModal("Rent")}
+                    <button
+                      onClick={() => openModal("Buy")}
                       className="w-full py-2 flex justify-center items-center text-sm font-medium bg-slate-100 text-slate-800 rounded-lg hover:bg-slate-200 transition-colors shadow-sm"
                     >
                       Rent
                     </button>
-                    <button 
+                    <button
                       onClick={() => openModal("Service")}
                       className="w-full py-2 flex justify-center items-center text-sm font-medium border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors shadow-sm"
                     >
@@ -102,19 +102,19 @@ export default function ProductsPage() {
                   <div className="text-xs font-bold text-accent mb-2 uppercase tracking-wide">Capacity: {product.capacity}</div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-4 h-14">{product.name}</h3>
                   <div className="grid grid-cols-3 gap-2">
-                    <button 
+                    <button
                       onClick={() => openModal("Buy")}
                       className="w-full py-2 flex justify-center items-center text-sm font-medium bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
                     >
                       Buy
                     </button>
-                    <button 
-                      onClick={() => openModal("Rent")}
+                    <button
+                      onClick={() => openModal("Buy")}
                       className="w-full py-2 flex justify-center items-center text-sm font-medium bg-slate-100 text-slate-800 rounded-lg hover:bg-slate-200 transition-colors shadow-sm"
                     >
                       Rent
                     </button>
-                    <button 
+                    <button
                       onClick={() => openModal("Service")}
                       className="w-full py-2 flex justify-center items-center text-sm font-medium border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition-colors shadow-sm"
                     >

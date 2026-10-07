@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 text-sm text-center text-slate-500">
-        &copy; {new Date().getFullYear()} MHE Service Cares. All rights reserved.
+        &copy; 2026 MHE Service Cares. All rights reserved.
       </div>
     </footer>
   );
