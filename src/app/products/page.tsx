@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ArrowRight, ShoppingCart, Settings } from "lucide-react";
 import ContactModal from "@/components/ContactModal";
 
-type InquiryType = "Buy" | "Sell" | "Service" | "Enquire" | null;
+type InquiryType = "Buy" | "Sell" | "Service" | "Enquire" | "Rent" | null;
 
 const handPalletTrucks = [
   { id: "h1", name: "Hydraulic Hand Pallet Truck", capacity: "2.5-3 Tons" },
