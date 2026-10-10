@@ -5,27 +5,13 @@ import { ArrowRight, ShoppingCart, Settings, Repeat, CheckCircle2, Shield, Users
 import ContactModal from "@/components/ContactModal";
 import Link from "next/link";
 import Accordion from "@/components/Accordion";
+import { products } from "@/data/products";
+import { motion } from "framer-motion";
 
 type InquiryType = "Buy" | "Sell" | "Rent" | "Service" | "Enquire" | null;
 
-// Product Data
-const handPalletTrucks = [
-  { id: "VI-01", name: "Hydraulic Hand Pallet Truck", capacity: "2.5-3 Tons", img: "/hp.png", style: { width: "300%", height: "250%", top: "-30%", left: "0%" } },
-  { id: "VI-02", name: "Heavy Duty Hand Pallet Truck", capacity: "3-5 Tons", img: "/hp.png", style: { width: "300%", height: "250%", top: "-30%", left: "-100%" } },
-  { id: "VI-03", name: "Heavy Duty Hand Pallet Truck (SS)", capacity: "1-1.5 Tons", img: "/hp.png", style: { width: "300%", height: "250%", top: "-30%", left: "-200%" } },
-  { id: "VI-04", name: "High Lift Pallet Truck", capacity: "Varies", img: "/hp.png", style: { width: "300%", height: "250%", top: "-130%", left: "0%" } },
-  { id: "VI-05", name: "Small Hand Pallet Truck", capacity: "Varies", img: "/hp.png", style: { width: "300%", height: "250%", top: "-130%", left: "-100%" } },
-  { id: "VI-06", name: "Transformer Hand Pallet Truck", capacity: "Varies", img: "/hp.png", style: { width: "300%", height: "250%", top: "-130%", left: "-200%" } },
-];
-
-const drumHandlingTrucks = [
-  { id: "VI-07", name: "3 Wheel Drum Truck", capacity: "300kg", img: "/drum1.png", style: { width: "300%", height: "130%", top: "-30%", left: "0%" } },
-  { id: "VI-08", name: "4 Wheel Drum Truck", capacity: "Varies", img: "/drum1.png", style: { width: "300%", height: "130%", top: "-30%", left: "-100%" } },
-  { id: "VI-09", name: "Drum Tilter & Mover", capacity: "Varies", img: "/drum1.png", style: { width: "300%", height: "130%", top: "-30%", left: "-200%" } },
-  { id: "VI-10", name: "Drum Palletizer Stacker", capacity: "Varies", img: "/drum2.png", style: { width: "300%", height: "130%", top: "-30%", left: "0%" } },
-  { id: "VI-11", name: "Manual Drum Stacker", capacity: "Varies", img: "/drum2.png", style: { width: "300%", height: "130%", top: "-30%", left: "-100%" } },
-  { id: "VI-12", name: "Semi Battery Drum Stacker", capacity: "Varies", img: "/drum2.png", style: { width: "300%", height: "130%", top: "-30%", left: "-200%" } },
-];
+const handPalletTrucks = products.filter(p => p.category === "Hand Pallet Trucks");
+const drumHandlingTrucks = products.filter(p => p.category === "Drum Handling Trucks");
 
 const ClientLogos = [
   { 
@@ -180,7 +166,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-transparent relative overflow-hidden">
+
       {/* Contact Modal */}
       <ContactModal 
         isOpen={modalOpen} 
@@ -189,8 +176,8 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[600px] flex items-center justify-center bg-slate-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10" />
+      <section className="relative w-full h-[600px] flex items-center justify-center bg-[#0B2A4A] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F26522] rounded-full mix-blend-multiply filter blur-[128px] opacity-40"></div>
         <div 
           className="absolute inset-0 z-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"
         />
@@ -208,19 +195,19 @@ export default function Home() {
             <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
               <button 
                 onClick={() => openModal("Buy")}
-                className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-primary/30 transform hover:-translate-y-1"
+                className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
               >
                 <ShoppingCart className="w-5 h-5" /> Buy Equipment
               </button>
               <button 
                 onClick={() => openModal("Rent")}
-                className="flex items-center gap-2 bg-white hover:bg-slate-50 text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl transform hover:-translate-y-1"
+                className="flex items-center gap-2 bg-white hover:bg-slate-50 text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
               >
                 <Repeat className="w-5 h-5" /> Rent Equipment
               </button>
               <button 
                 onClick={() => openModal("Service")}
-                className="flex items-center gap-2 bg-slate-800/80 hover:bg-slate-800 backdrop-blur-md border border-slate-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl transform hover:-translate-y-1"
+                className="flex items-center gap-2 bg-slate-800/80 hover:bg-slate-800 backdrop-blur-md border border-slate-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
               >
                 <Settings className="w-5 h-5" /> Request Service
               </button>
@@ -253,7 +240,10 @@ export default function Home() {
       </section>
 
       {/* Valued Clients (Marquee) */}
-      <section className="py-12 bg-white border-b border-slate-100 overflow-hidden">
+      <motion.section 
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}
+        className="py-12 bg-white/80 backdrop-blur-md relative z-10 shadow-sm border-b border-slate-100 overflow-hidden"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
           <h3 className="text-xl sm:text-2xl font-extrabold tracking-wider text-slate-700 uppercase">Trusted By Industry Leaders</h3>
         </div>
@@ -273,12 +263,16 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Us Section */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full bg-white">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-          <div className="mb-12 lg:mb-0">
+      <motion.section 
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}
+        className="py-24 w-full bg-gradient-to-b from-transparent to-[#0B2A4A]/5 relative z-10"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div className="mb-12 lg:mb-0">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 leading-tight">
               Your <span className="text-accent">Partner For Life</span> in Material Handling
             </h2>
@@ -318,10 +312,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* Products Section */}
-      <section className="py-24 bg-slate-50" id="products">
+      <motion.section 
+        id="products"
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}
+        className="py-24 relative z-10"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Our Premium Equipment</h2>
@@ -333,9 +332,12 @@ export default function Home() {
             <h3 className="text-2xl font-bold text-primary mb-8 border-b-2 border-accent pb-4 inline-block">Hand Pallet Trucks</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {handPalletTrucks.map((product) => (
-                <div key={product.id} className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 group transform hover:-translate-y-1">
-                  <div className="h-48 bg-white relative overflow-hidden flex items-center justify-center border-b border-slate-100">
-                    <img src={product.img} className="absolute max-w-none transition-transform group-hover:scale-105 duration-500" style={product.style} />
+                <div key={product.id} className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-white/20 group transform hover:-translate-y-1">
+                  <div className="h-48 bg-white/50 relative overflow-hidden flex items-center justify-center border-b border-white/20">
+                    <img src={product.img} alt={product.name} className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" />
+                    <Link href={`/products/${product.id}`} className="absolute top-4 right-4 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-md hover:bg-primary hover:text-white transition-colors flex items-center gap-1 z-20">
+                      Details <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
                   <div className="p-6">
                     <div className="text-xs font-bold text-accent mb-2 uppercase tracking-wide">Capacity: {product.capacity}</div>
@@ -371,9 +373,12 @@ export default function Home() {
             <h3 className="text-2xl font-bold text-primary mb-8 border-b-2 border-accent pb-4 inline-block">Drum Handling Trucks</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {drumHandlingTrucks.map((product) => (
-                <div key={product.id} className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 group transform hover:-translate-y-1">
-                  <div className="h-48 bg-white relative overflow-hidden flex items-center justify-center border-b border-slate-100">
-                    <img src={product.img} className="absolute max-w-none transition-transform group-hover:scale-105 duration-500" style={product.style} />
+                <div key={product.id} className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-white/20 group transform hover:-translate-y-1">
+                  <div className="h-48 bg-white/50 relative overflow-hidden flex items-center justify-center border-b border-white/20">
+                    <img src={product.img} alt={product.name} className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" />
+                    <Link href={`/products/${product.id}`} className="absolute top-4 right-4 bg-white/90 backdrop-blur text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-md hover:bg-primary hover:text-white transition-colors flex items-center gap-1 z-20">
+                      Details <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
                   <div className="p-6">
                     <div className="text-xs font-bold text-accent mb-2 uppercase tracking-wide">Capacity: {product.capacity}</div>
@@ -404,10 +409,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Blog Section */}
-      <section className="py-24 bg-white">
+      <motion.section 
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}
+        className="py-24 relative z-10"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Latest Insights</h2>
@@ -417,7 +425,7 @@ export default function Home() {
             {blogPosts.map((post) => (
               <article 
                 key={post.id} 
-                className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 overflow-hidden flex flex-col group transform hover:-translate-y-1"
+                className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/20 overflow-hidden flex flex-col group transform hover:-translate-y-1"
               >
                 <div className="relative h-56 overflow-hidden bg-slate-200">
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
@@ -454,10 +462,13 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-slate-50 border-t border-slate-200">
+      <motion.section 
+        initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}
+        className="py-24 border-t border-slate-200/50 relative z-10"
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
@@ -465,7 +476,7 @@ export default function Home() {
           </div>
           <Accordion items={faqs} />
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

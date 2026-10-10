@@ -61,7 +61,7 @@ export default function Accordion({ items }: AccordionProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-2 sm:p-6">
+    <div className="bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl border border-white/20 p-2 sm:p-6">
       {items.map((item, index) => (
         <AccordionItem
           key={index}

@@ -28,11 +28,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-28 py-2">
           {/* Logo Placeholder */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/logo.png" alt="MHE Service Care" className="h-16 w-auto" />
+          <div className="flex-shrink-0 flex items-center h-full">
+            <Link href="/" className="flex items-center gap-2 h-full">
+              <img src="/logo.png" alt="MHE Service Care" className="h-full max-h-24 w-auto object-contain" />
             </Link>
           </div>
 
