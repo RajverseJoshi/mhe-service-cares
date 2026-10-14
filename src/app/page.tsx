@@ -176,64 +176,53 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[600px] flex items-center justify-center bg-[#0B2A4A] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F26522] rounded-full mix-blend-multiply filter blur-[128px] opacity-40"></div>
-        <div 
-          className="absolute inset-0 z-0 opacity-60 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"
-        />
+      <section 
+        className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('https://www.inboundlogistics.com/wp-content/uploads/materials-handling-equipment.jpg')` }}
+      >
+        <div className="absolute inset-0 bg-[#0B2A4A]/85 z-0"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#F26522] rounded-full mix-blend-multiply filter blur-[128px] opacity-30 pointer-events-none"></div>
         
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center sm:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight drop-shadow-lg">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 sm:py-24">
+          <div className="max-w-3xl text-center sm:text-left">
+            {/* ISO Certified Badge */}
+            <div className="relative z-10 inline-flex items-center gap-3 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-xl border border-white/20 mb-6 cursor-default">
+              <div className="bg-accent/10 p-2 rounded-full text-accent">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
+              <div className="text-left">
+                <p className="font-bold text-slate-800 text-sm leading-tight">ISO Certified</p>
+                <p className="text-xs text-slate-500 font-medium">Premium Quality</p>
+              </div>
+            </div>
+
+            <h1 className="relative z-10 text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight drop-shadow-lg">
               Keeping Your <span className="text-accent drop-shadow-md">Operations</span> Moving
             </h1>
-            <p className="mt-4 text-xl sm:text-2xl text-slate-200 mb-10 font-light drop-shadow">
+            <p className="relative z-10 mt-4 text-xl sm:text-2xl text-slate-200 mb-10 font-light drop-shadow max-w-2xl">
               Premium material handling equipment solutions for modern industrial demands.
             </p>
             
             {/* Action Bar */}
-            <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
+            <div className="relative z-10 flex flex-wrap gap-4 justify-center sm:justify-start">
               <button 
                 onClick={() => openModal("Buy")}
-                className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
+                className="relative z-10 flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
               >
                 <ShoppingCart className="w-5 h-5" /> Buy Equipment
               </button>
               <button 
                 onClick={() => openModal("Rent")}
-                className="flex items-center gap-2 bg-white hover:bg-slate-50 text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
+                className="relative z-10 flex items-center gap-2 bg-white hover:bg-slate-50 text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
               >
                 <Repeat className="w-5 h-5" /> Rent Equipment
               </button>
               <button 
                 onClick={() => openModal("Service")}
-                className="flex items-center gap-2 bg-slate-800/80 hover:bg-slate-800 backdrop-blur-md border border-slate-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
+                className="relative z-10 flex items-center gap-2 bg-slate-800/80 hover:bg-slate-800 backdrop-blur-md border border-slate-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all shadow-xl hover:shadow-[0_0_15px_rgba(242,101,34,0.5)] transform hover:-translate-y-1 duration-300"
               >
                 <Settings className="w-5 h-5" /> Request Service
               </button>
-            </div>
-          </div>
-
-          <div className="hidden lg:block relative pl-10">
-            <div className="absolute inset-0 bg-accent blur-[120px] opacity-20 rounded-full" />
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500">
-              <img 
-                src="https://www.inboundlogistics.com/wp-content/uploads/materials-handling-equipment.jpg" 
-                alt="Material Handling Equipment" 
-                className="w-full h-[400px] object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
-            </div>
-            
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl z-20 border border-slate-100 flex items-center gap-4 animate-bounce hover:animate-none transition-all cursor-default">
-              <div className="bg-accent/10 p-3 rounded-full text-accent">
-                <CheckCircle2 className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="font-bold text-slate-800 leading-tight">ISO Certified</p>
-                <p className="text-xs text-slate-500">Premium Quality</p>
-              </div>
             </div>
           </div>
         </div>
